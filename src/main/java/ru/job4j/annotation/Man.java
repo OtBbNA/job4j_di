@@ -1,4 +1,4 @@
-package ru.job4j.di.annotation;
+package ru.job4j.annotation;
 
 import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;

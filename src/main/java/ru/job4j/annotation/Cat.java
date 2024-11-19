@@ -1,4 +1,4 @@
-package ru.job4j.di.annotation;
+package ru.job4j.annotation;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

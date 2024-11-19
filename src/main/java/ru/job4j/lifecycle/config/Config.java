@@ -1,9 +1,8 @@
-package ru.job4j.di.lifecycle.config;
+package ru.job4j.lifecycle.config;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import ru.job4j.di.lifecycle.model.Product;
+import ru.job4j.lifecycle.model.Product;
 
 @Configuration
 public class Config {

@@ -1,4 +1,4 @@
-package ru.job4j.di.lifecycle.model;
+package ru.job4j.lifecycle.model;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
@@ -18,7 +18,7 @@ public class Product implements BeanNameAware, BeanFactoryAware, ApplicationCont
     private BeanFactory beanFactory;
 
     public Product(String name, double price) {
-        System.out.printf("1. вызван конструктор %s%n", getClass().getSimpleName());
+        System.out.printf("1. пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ %s%n", getClass().getSimpleName());
         this.name = name;
         this.price = price;
     }
@@ -26,47 +26,47 @@ public class Product implements BeanNameAware, BeanFactoryAware, ApplicationCont
     @Override
     public void setBeanName(String name) {
         beanName = name;
-        System.out.printf("2. этот бин зарегистрирован в контексте под именем '%s'%n", name);
+        System.out.printf("2. пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ '%s'%n", name);
     }
 
     @Override
     public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
         this.beanFactory = beanFactory;
         boolean result = this.beanFactory.containsBean(beanName);
-        System.out.printf("2. установка BeanFactory в бин '%s', Результат установки: '%s'%n", beanName, result);
+        System.out.printf("2. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ BeanFactory пїЅ пїЅпїЅпїЅ '%s', пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: '%s'%n", beanName, result);
     }
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        System.out.printf("2. выполняются действия setApplicationContext бина '%s'%n", beanName);
+        System.out.printf("2. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ setApplicationContext пїЅпїЅпїЅпїЅ '%s'%n", beanName);
     }
 
     @PostConstruct
     public void annotInitMethod() {
-        System.out.printf("4. @PostConstruct выполняются действия при инициализация бина '%s'%n", beanName);
+        System.out.printf("4. @PostConstruct пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ '%s'%n", beanName);
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        System.out.printf("4. InitializingBean: выполняются действия при инициализация бина '%s'%n", beanName);
+        System.out.printf("4. InitializingBean: пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ '%s'%n", beanName);
     }
 
     public void initMethod() {
-        System.out.printf("4. @Bean, свойство initMethod: выполняются действия при инициализация бина '%s'%n", beanName);
+        System.out.printf("4. @Bean, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ initMethod: пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ '%s'%n", beanName);
     }
 
     @PreDestroy
     public void oneMethodDestroy() {
-        System.out.printf("6. @PreDestroy: выполняются действия при уничтожении бина '%s'%n", beanName);
+        System.out.printf("6. @PreDestroy: пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ '%s'%n", beanName);
     }
 
     @Override
     public void destroy() throws Exception {
-        System.out.printf("6. DisposableBean: выполняются действия при уничтожении бина '%s'%n", beanName);
+        System.out.printf("6. DisposableBean: пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ '%s'%n", beanName);
     }
 
     public void destroyMethod() {
-        System.out.printf("6. @Bean, свойство destroyMethod: - выполняются действия при уничтожении бина '%s'%n", beanName);
+        System.out.printf("6. @Bean, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ destroyMethod: - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ '%s'%n", beanName);
     }
 
     public String getName() {
